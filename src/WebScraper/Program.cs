@@ -43,13 +43,19 @@ namespace WebScraper
         private static IEnumerable<int> GetPositionsForLink(WebBrowser wb, string pageUrl, string link)
         {
             wb.Navigate(pageUrl);
+            if (wb.Document != null)
+            {
+                wb.Document.OpenNew(true);
+            }
 
+            // Wait till page is loaded and document created
             while (wb.ReadyState != WebBrowserReadyState.Complete)
             {
                 Thread.Sleep(500);
                 System.Windows.Forms.Application.DoEvents();
             }
 
+            // Wait till result is element is on page
             var el = wb.Document.GetElementById("rso");
             while (el == null)
             {

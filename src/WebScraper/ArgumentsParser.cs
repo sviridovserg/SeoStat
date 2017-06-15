@@ -34,7 +34,7 @@ namespace WebScraper
 
         private static string GetLinkArg(string[] args)
         {
-            var items = args.SkipWhile(s => ConvertToArg(s) == Arg.Link).ToArray();
+            var items = args.SkipWhile(s => ConvertToArg(s) != Arg.Link).ToArray();
             if (items.Length < 2)
             {
                 throw new ArgumentException("Arguments missing -link seteting");
@@ -44,7 +44,7 @@ namespace WebScraper
 
         private static string[] GetKeywordsArg(string[] args)
         {
-            var items = args.SkipWhile(s => ConvertToArg(s) == Arg.Keywords).ToArray();
+            var items = args.SkipWhile(s => ConvertToArg(s) != Arg.Keywords).ToArray();
             if (items.Length < 2)
             {
                 throw new ArgumentException("Arguments missing -keywords seteting");
@@ -61,7 +61,7 @@ namespace WebScraper
         {
             switch (a)
             {
-                case "-keywrods": return Arg.Keywords;
+                case "-keywords": return Arg.Keywords;
                 case "-link": return Arg.Link;
                 default: return Arg.Unknown;
             }
