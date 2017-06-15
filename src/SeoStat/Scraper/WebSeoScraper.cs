@@ -17,7 +17,7 @@ namespace SeoStat.Scraper
                     StartInfo = new System.Diagnostics.ProcessStartInfo
                     {
                         FileName = location + "\\\\WebScraper.exe",
-                        Arguments = "command line arguments to your executable",
+                        Arguments = $"-keywords {keywords} -link {link}",
                         UseShellExecute = false,
                         RedirectStandardOutput = true,
                         CreateNoWindow = true
