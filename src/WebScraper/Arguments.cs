@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace WebScraper
 {
-    class ArgumentsParser
+    class Arguments
     {
         public IEnumerable<string> Keywords { get; }
         public string Link { get; }
 
-        public ArgumentsParser(string[] keywords, string link)
+        public Arguments(string[] keywords, string link)
         {
             Keywords = keywords;
             Link = link;
@@ -23,13 +23,13 @@ namespace WebScraper
             Link,
             Unknown
         }
-        public static ArgumentsParser Parse(string[] args)
+        public static Arguments Parse(string[] args)
         {
             if (args.Length < 4)
             {
                 throw new ArgumentException("Arguments format is: -keywords example -link exampl.com", nameof(args));
             }
-            return new ArgumentsParser(GetKeywordsArg(args), GetLinkArg(args));
+            return new Arguments(GetKeywordsArg(args), GetLinkArg(args));
         }
 
         private static string GetLinkArg(string[] args)
