@@ -24,7 +24,8 @@ namespace SeoStat.Scraper
                     }
                 };
                 proc.Start();
-                var result = proc.StandardOutput.ReadToEnd().Split(' ').Select(s => int.Parse(s));
+                var procOut = proc.StandardOutput.ReadToEnd();
+                var result = procOut.Split(' ').Where(s => !string.IsNullOrEmpty(s)).Select(s => int.Parse(s));
                 return result;
             });
         }

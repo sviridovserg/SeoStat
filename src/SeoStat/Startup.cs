@@ -30,7 +30,16 @@ namespace SeoStat
         {
             // Add framework services.
             services.AddMvc();
-            
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy",
+                    builder => builder.AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                    .AllowCredentials());
+            });
+
+
             services.AddTransient<IWebSeoScraper, WebSeoScraper>();
         }
 
@@ -40,7 +49,9 @@ namespace SeoStat
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
+            app.UseCors("CorsPolicy");
             app.UseMvc();
+            
         }
     }
 }

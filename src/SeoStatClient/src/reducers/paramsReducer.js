@@ -10,7 +10,7 @@ const paramsReducer = (state = initialState, action) => {
         case CHANGE_URL:
             return { ...state, ...{ url: action.url }};
         case CHANGE_KEYWORDS:
-            return { ...state, ...{ altText: action.text }};
+            return { ...state, ...{ keywords: action.keywords }};
         default:
             return state;
     }

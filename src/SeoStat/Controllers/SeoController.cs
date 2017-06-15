@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using System.IO;
 using SeoStat.Scraper;
+using Microsoft.AspNetCore.Cors;
 
 namespace SeoStat.Controllers
 {
@@ -18,9 +19,9 @@ namespace SeoStat.Controllers
         }
 
         [HttpGet]
-        public async Task<IEnumerable<int>> Get()
+        public async Task<IEnumerable<int>> Get(string keywords, string url)
         {
-            return await scraper.GetResultPoistionForLinkAsync("online title search", "infotrack.com.au");
+            return await scraper.GetResultPoistionForLinkAsync(keywords, url);
         }
 
     }
