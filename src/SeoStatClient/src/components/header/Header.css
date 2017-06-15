@@ -1,0 +1,25 @@
+.header-container {
+  background-color: var(--success);
+  padding:  var(--sp-2);
+  text-align: center;
+  color: #ffffff;
+}
+
+
+.logo-container {
+    display: flex;
+    height: 120px;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.header-logo {
+    height: 60px;
+}
+
+@media (min-width: 768px) {
+    .header-logo {
+        height: 120px;
+    }
+}

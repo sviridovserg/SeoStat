@@ -1,0 +1,30 @@
+{
+  "name": "git-video-comment",
+  "version": "0.1.0",
+  "description": "Embed videos into you git comments and readme files",
+  "author": "Sergei Sviridov",
+  "private": true,
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "bootstrap-material-design": "^0.5.10",
+    "prop-types": "^15.5.10",
+    "react": "^15.5.4",
+    "react-bootstrap": "^0.31.0",
+    "react-dom": "^15.5.4",
+    "react-redux": "^5.0.5",
+    "redux": "^3.6.0"
+  },
+  "devDependencies": {
+    "eslint-plugin-react-app": "^1.0.2",
+    "husky": "^0.13.3",
+    "react-scripts": "0.9.5"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "lint": "esw ./src/**/*.js --color --max-warnings 0",
+    "precommit": "npm run lint"
+  }
+}
