@@ -12,7 +12,7 @@ namespace WebScraper
     {
         static void Main(string[] args)
         {
-            var tcs = new TaskCompletionSource<string>();
+            var tcs = new TaskCompletionSource<IEnumerable<int>>();
             Thread thread = new Thread(() =>
             {
                 WebBrowser wb = new WebBrowser();
@@ -36,17 +36,23 @@ namespace WebScraper
                     System.Windows.Forms.Application.DoEvents();
                 }
 
-                var infoCount = el.GetElementsByTagName("h3").Cast<HtmlElement>().Where(h => h.FirstChild.GetAttribute("href").Contains("infotrack.com.au")).Count();
-
-                var dock = wb.Document;
-                tcs.SetResult(string.Empty);
+                var links = el.GetElementsByTagName("h3").Cast<HtmlElement>().Select(h => h.FirstChild.GetAttribute("href")).ToArray();
+                List<int> result = new List<int>();
+                for (var i = 0; i < links.Length; i++)
+                {
+                    if (links[i].Contains("infotrack.com.au"))
+                    {
+                        result.Add(i);
+                    }
+                }
+                tcs.SetResult(result);
 
             });
             thread.SetApartmentState(ApartmentState.STA);
             thread.Start();
             thread.Join();
             var res = tcs.Task.Result;
-            Console.WriteLine("Done");
+            Console.WriteLine(String.Join(" ", res));
             return;
         }
     }

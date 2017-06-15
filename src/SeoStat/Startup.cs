@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using SeoStat.Scraper;
 
 namespace SeoStat
 {
@@ -29,6 +30,8 @@ namespace SeoStat
         {
             // Add framework services.
             services.AddMvc();
+            
+            services.AddTransient<IWebSeoScraper, WebSeoScraper>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

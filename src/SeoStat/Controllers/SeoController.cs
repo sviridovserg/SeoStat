@@ -4,39 +4,23 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using System.IO;
+using SeoStat.Scraper;
 
 namespace SeoStat.Controllers
 {
     [Route("api/[controller]")]
     public class SeoController : Controller
     {
-        [HttpGet]
-        public async Task<string> Get()
+        private IWebSeoScraper scraper;
+        public SeoController(IWebSeoScraper sc)
         {
-            var location = AppDomain.CurrentDomain.BaseDirectory;
-            return await Task.Run(() =>
-            {
-                var proc = new System.Diagnostics.Process
-                {
-                    StartInfo = new System.Diagnostics.ProcessStartInfo
-                    {
-                        FileName = location + "\\\\WebScraper.exe",
-                        Arguments = "command line arguments to your executable",
-                        UseShellExecute = false,
-                        RedirectStandardOutput = true,
-                        CreateNoWindow = true
-                    }
-                };
-                proc.Start();
-                string res = "";
-                while (!proc.StandardOutput.EndOfStream)
-                {
-                    res = proc.StandardOutput.ReadLine();
-                    // do something with line
-                }
-                return res;
-            });
+            scraper = sc;
+        }
 
+        [HttpGet]
+        public async Task<IEnumerable<int>> Get()
+        {
+            return await scraper.GetResultPoistionForLinkAsync("online title search", "infotrack.com.au");
         }
 
     }
