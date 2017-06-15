@@ -12,7 +12,7 @@ namespace WebScraper
     {
         static void Main(string[] args)
         {
-            var argParsed = ArgumentsParser.Parse(args);
+            var argParsed = Arguments.Parse(args);
             var tcs = new TaskCompletionSource<IEnumerable<int>>();
             Thread thread = new Thread(() =>
             {
