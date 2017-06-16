@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WebScraper
 {
-    class Arguments
+    public class Arguments
     {
         public IEnumerable<string> Keywords { get; }
         public string Link { get; }

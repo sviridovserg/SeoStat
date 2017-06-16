@@ -14,6 +14,8 @@ Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "SeoStat", "src\SeoStat\SeoS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebScraper", "src\WebScraper\WebScraper.csproj", "{12A34FE8-BF24-4511-8896-7AD9DEA79058}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebScraperTests", "WebScraperTests\WebScraperTests.csproj", "{239DAC89-D7EF-4F6A-9ADC-B6E93F63ED8C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -28,6 +30,10 @@ Global
 		{12A34FE8-BF24-4511-8896-7AD9DEA79058}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{12A34FE8-BF24-4511-8896-7AD9DEA79058}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{12A34FE8-BF24-4511-8896-7AD9DEA79058}.Release|Any CPU.Build.0 = Release|Any CPU
+		{239DAC89-D7EF-4F6A-9ADC-B6E93F63ED8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{239DAC89-D7EF-4F6A-9ADC-B6E93F63ED8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{239DAC89-D7EF-4F6A-9ADC-B6E93F63ED8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{239DAC89-D7EF-4F6A-9ADC-B6E93F63ED8C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -35,5 +41,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{F542CF3D-22B6-4E48-8E8C-0BF914878829} = {AC1AB57F-DCEB-4610-A8B5-79FC8CC5F789}
 		{12A34FE8-BF24-4511-8896-7AD9DEA79058} = {AC1AB57F-DCEB-4610-A8B5-79FC8CC5F789}
+		{239DAC89-D7EF-4F6A-9ADC-B6E93F63ED8C} = {AC1AB57F-DCEB-4610-A8B5-79FC8CC5F789}
 	EndGlobalSection
 EndGlobal
