@@ -25,6 +25,7 @@ const SeoStatistics = (props) => {
 SeoStatistics.propTypes = {
     url: PropTypes.string.isRequired,
     keywords: PropTypes.string.isRequired,
+    result: PropTypes.string.isRequired,
     onUpdatePositions: PropTypes.func.isRequired,
 };
 

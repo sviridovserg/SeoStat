@@ -3,6 +3,8 @@ import fetch from 'isomorphic-fetch'
 export const CHANGE_URL = 'CHANGE_URL';
 export const CHANGE_KEYWORDS = 'CHANGE_KEYWORDS';
 export const UPDATE_SEO_POSITIONS = 'UPDATE_SEO_POSITIONS';
+export const SET_ERROR = 'SET_ERROR';
+export const REMOVE_ERROR = 'REMOVE_ERROR';
 
 export const changeURL = (url) => {
     return {
@@ -18,7 +20,20 @@ export const changeKeywords = (keywords) => {
     };
 };
 
-export const updateSeoPositions = (dispatcher, url, keywords) => {
+export const setError = (error) => {
+    return  {
+        type: SET_ERROR,
+        error: error
+    };
+};
+
+export const removeError = () => {
+    return {
+        type: REMOVE_ERROR
+    };
+};
+
+export const updateSeoPositions = (dispatch, url, keywords) => {
     var params = {
         url: url,
         keywords: keywords
@@ -28,11 +43,16 @@ export const updateSeoPositions = (dispatcher, url, keywords) => {
     var query = Object.keys(params)
         .map(k => esc(k) + '=' + esc(params[k]))
         .join('&');
-    fetch('http://localhost:50516/api/seo?'+query).then(r => r.json()).then(data => {
-        dispatcher({
-            type: UPDATE_SEO_POSITIONS,
-            positions: data
+    fetch('http://localhost:50516/api/seo?'+query)
+        .then(r => r.json())
+        .then(data => {
+            dispatch({
+                type: UPDATE_SEO_POSITIONS,
+                positions: data
+            });
+        })
+        .catch(err => {
+            dispatch(setError('An error occured during processing of yor request'));
         });
-    });
 
 };

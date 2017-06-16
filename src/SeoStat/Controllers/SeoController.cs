@@ -19,9 +19,13 @@ namespace SeoStat.Controllers
         }
 
         [HttpGet]
-        public async Task<IEnumerable<int>> Get(string keywords, string url)
+        public async Task<ActionResult> Get(string keywords, string url)
         {
-            return await scraper.GetResultPoistionForLinkAsync(keywords, url);
+            if (string.IsNullOrEmpty(keywords) || string.IsNullOrEmpty(url))
+            {
+                return BadRequest();
+            }
+            return Ok(await scraper.GetResultPoistionForLinkAsync(keywords, url));
         }
 
     }
