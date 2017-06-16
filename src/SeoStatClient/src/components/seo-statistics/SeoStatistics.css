@@ -5,3 +5,7 @@
 .input-validate.has-error .help-block {
     display: block;
 }
+
+.container {
+    position: relative;
+}

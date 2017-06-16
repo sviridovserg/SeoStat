@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Button, FormControl, FormGroup, HelpBlock } from 'react-bootstrap';
 
 import { updateSeoPositions, changeURL, changeKeywords } from '../../actions';
+import LoadingIndicator from '../loading-indicator/LoadingIndicator'
 import './SeoStatistics.css';
 
 const isEmpty = (value) => {
@@ -16,8 +17,10 @@ class SeoStatistics extends Component {
     render() {
         const props = this.props;
         const isValid = !isEmpty(props.keywords) && !isEmpty(props.url);
+        const loading = props.isLoading ? (<LoadingIndicator />) : null
         return (
             <div className="container">
+                {loading}
                 <div className="app-row row text-center">
                     <div className="col-xs-6">
                         <FormGroup className="input-validate" validationState={ this.getValidationStateValue(props.keywords) }>
@@ -47,6 +50,7 @@ SeoStatistics.propTypes = {
     url: PropTypes.string.isRequired,
     keywords: PropTypes.string.isRequired,
     result: PropTypes.string.isRequired,
+    isLoading: PropTypes.bool.isRequired,
     onUpdatePositions: PropTypes.func.isRequired,
     onKeywordsChanged: PropTypes.func.isRequired,
     onUrlChanged: PropTypes.func.isRequired
@@ -57,7 +61,8 @@ const mapStateToProps = (state) => {
     return {
         url: state.params.url,
         keywords: state.params.keywords,
-        result: state.result.result
+        result: state.result.result,
+        isLoading: state.result.isFetching,
     };
 }
 
