@@ -292,4 +292,8 @@ __pycache__/
 *.btp.cs
 *.btm.cs
 *.odx.cs
+<<<<<<< HEAD
 *.xsd.cssw
+=======
+*.xsd.css
+>>>>>>> 16f700d92540446636025a361ae2785c754f4ce6
