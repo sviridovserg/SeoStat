@@ -74,7 +74,7 @@ const mapDispatchToProps = (dispatch) => {
             if (isEmpty(url) || isEmpty(keywords)) {
                 return;
             }
-            updateSeoPositions(dispatch, url, keywords);
+            updateSeoPositions(url, keywords)(dispatch);
         }
     };
 };

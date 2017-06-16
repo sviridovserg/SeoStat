@@ -1,7 +1,7 @@
 {
-  "name": "git-video-comment",
+  "name": "SeoStat",
   "version": "0.1.0",
-  "description": "Embed videos into you git comments and readme files",
+  "description": "Seo Position Grabbing",
   "author": "Sergei Sviridov",
   "private": true,
   "dependencies": {
@@ -19,7 +19,10 @@
   "devDependencies": {
     "eslint-plugin-react-app": "^1.0.2",
     "husky": "^0.13.3",
-    "react-scripts": "0.9.5"
+    "nock": "^9.0.13",
+    "react-scripts": "0.9.5",
+    "redux-mock-store": "^1.2.3",
+    "redux-thunk": "^2.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
