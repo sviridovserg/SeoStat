@@ -1,8 +1,8 @@
 import { CHANGE_URL, CHANGE_KEYWORDS } from '../actions/index'
 
 const initialState = {
-    url: '',
-    keywords: '',
+    url: 'infotrack.com.au',
+    keywords: 'online title search',
 };
 
 const paramsReducer = (state = initialState, action) => {
